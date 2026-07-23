@@ -9,12 +9,9 @@ import  torch
 from torch_ema import ExponentialMovingAverage
 # import wandb
 
-# 清空缓存
 torch.cuda.empty_cache()
-# 创建解析器对象
 parser = argparse.ArgumentParser(description="kappaformer from Mengfan Wu, Junfu Tan")
 
-# 添加命令行参数
 parser.add_argument('--strategy', type=str, default='standalone', help="standalone or ddp")
 parser.add_argument('--dist_backend', type=str, default='nccl', help="standalone or ddp")
 parser.add_argument('--device', type=str, default='cuda', help="XXX")
@@ -46,7 +43,7 @@ parser.add_argument('--enable_kappa', type=bool, default=False, help="XXX")
 parser.add_argument('--use_checkpoints', type=str, default='', help="XXX")
 parser.add_argument('--warmup_epochs', type=int, default=5, help="XXX")
 
-# parse parameters 
+# Parse parameters 
 args = parser.parse_args()
 # wandb_api_key = os.getenv('WANDB_API_KEY')
 # if wandb_api_key:
