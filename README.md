@@ -96,7 +96,7 @@ Download and place the checkpoints in the `pretrained_models/` directory.
 
 KappaFormer training follows a two-stage process.
 
-### Stage I: Pre-training on Elastic Properties
+### Stage I: Pre-training on Elastic Dataset
 
 Train the backbone and harmonic branch on large-scale B/G data:
 
@@ -116,7 +116,7 @@ python train.py \
 - `--train_batch_size 4`: Batch size per GPU
 - `--lr 1e-4`: Learning rate for Stage I
 
-### Stage II: Fine-tuning on κ<sub>L</sub> Prediction
+### Stage II: Fine-tuning on Experimental κ<sub>L</sub> Dataset
 
 Fine-tune using the Stage I checkpoint with the anharmonic branch:
 
@@ -137,24 +137,12 @@ python train.py \
 - `--use_checkpoints`: Path to Stage I pre-trained checkpoint
 - `--lr 1e-3`: Higher learning rate for fine-tuning
 
-### Additional Training Options
-
-```bash
-# Distributed training
-python train.py --strategy ddp ...
-
-# Mixed precision training
-python train.py --fp16 True ...
-
-# Resume from checkpoint
-python train.py --ifresume True --ckpt_path ./path/to/ckpt.pt ...
-```
 
 ## Inference
 
-### Predict Thermal Conductivity
+### Predict Elastic Properties and Lattice Thermal Conductivity
 
-Use the trained model to predict κ<sub>L</sub> for new materials:
+Use the pretrained model to predict κ<sub>L</sub> for new materials:
 
 ```bash
 python return_infer_embedding.py \
