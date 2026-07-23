@@ -62,14 +62,14 @@ bg_keys = ['B_VRH','G_VRH']
 
 if args.enable_kappa:
     label_keys = kappa_keys + bg_keys 
-    train_dataset = get_dataset('/share/home/u15502/mfwu/kappaformer/data/kappaformer/kappadata_lmdb/structures_with_exp_kappa_basic',split='train',batch_size=args.train_batch_size  ,label_keys=label_keys)
-    valid_dataset = get_dataset('/share/home/u15502/mfwu/kappaformer/data/kappaformer/kappadata_lmdb/structures_with_exp_kappa_basic',split='valid',batch_size=args.valid_batch_size,label_keys=label_keys)
-    test_dataset = get_dataset('/share/home/u15502/mfwu/kappaformer/data/kappaformer/kappadata_lmdb/structures_with_exp_kappa_basic',split='test',batch_size=args.valid_batch_size,label_keys=label_keys)
+    train_dataset = get_dataset('/share/home/u15502/mfwu/kappaformer/data/kappadata_lmdb/structures_with_exp_kappa_basic',split='train',batch_size=args.train_batch_size  ,label_keys=label_keys)
+    valid_dataset = get_dataset('/share/home/u15502/mfwu/kappaformer/data/kappadata_lmdb/structures_with_exp_kappa_basic',split='valid',batch_size=args.valid_batch_size,label_keys=label_keys)
+    test_dataset = get_dataset('/share/home/u15502/mfwu/kappaformer/data/kappadata_lmdb/structures_with_exp_kappa_basic',split='test',batch_size=args.valid_batch_size,label_keys=label_keys)
 else:
     label_keys = bg_keys
-    train_dataset = get_dataset('/share/home/u15502/mfwu/kappaformer/data/kappaformer/bgdata_lmdb/MP_structures_B_G_20250619',split='train',batch_size=args.train_batch_size  ,label_keys=label_keys)
-    valid_dataset = get_dataset('/share/home/u15502/mfwu/kappaformer/data/kappaformer/bgdata_lmdb/MP_structures_B_G_20250619',split='valid',batch_size=args.valid_batch_size,label_keys=label_keys)
-    test_dataset = get_dataset('/share/home/u15502/mfwu/kappaformer/data/kappaformer/bgdata_lmdb/MP_structures_B_G_20250619',split='test',batch_size=args.valid_batch_size,label_keys=label_keys)
+    train_dataset = get_dataset('/share/home/u15502/mfwu/kappaformer/data/bgdata_lmdb/MP_structures_B_G_20250619',split='train',batch_size=args.train_batch_size  ,label_keys=label_keys)
+    valid_dataset = get_dataset('/share/home/u15502/mfwu/kappaformer/data/bgdata_lmdb/MP_structures_B_G_20250619',split='valid',batch_size=args.valid_batch_size,label_keys=label_keys)
+    test_dataset = get_dataset('/share/home/u15502/mfwu/kappaformer/data/bgdata_lmdb/MP_structures_B_G_20250619',split='test',batch_size=args.valid_batch_size,label_keys=label_keys)
 
 total_num_steps = len(train_dataset) * args.max_epochs / args.train_batch_size
 warmup_num_steps = total_num_steps * args.warmup_epochs /args.max_epochs
