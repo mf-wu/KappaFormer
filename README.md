@@ -1,6 +1,6 @@
 # KappaFormer
 
-> This repository is the implementation of the HiBoFL framework for the paper "*Physics-aware Transformer for lattice thermal conductivity via cross-domain transfer learning*".  
+> This repository is the implementation of KappaFormer for the paper "*KappaFormer: Physics-aware Transformer for lattice thermal conductivity via cross-domain transfer learning*".  
 - arXiv: [10.48550/arXiv.2604.03547](https://arxiv.org/abs/2604.03547)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
